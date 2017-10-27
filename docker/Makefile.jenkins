@@ -153,6 +153,7 @@ test-package-java:
 		multiNodeUtils.sh \
 		h2o-core/src/main/java/ \
 		h2o-core/src/test/java/ \
+		h2o-core/src/test/resources/*.jks \
 		h2o-core/build/resources/main \
 		h2o-core/build/resources/test \
 		h2o-core/build/classes/test \
@@ -179,7 +180,7 @@ test-package-java:
 		h2o-scala/src/test/scala \
 		h2o-scala/build/h2o-scala_2.*/libs/h2o-scala_2.*.jar \
 		scripts/run.py py \
-		build/h2o.jar
+		build/h2o.jar sort_crash.csv
 	find . -name "*.gradle" | zip -r test-package-java -@
 	find . -name "*test*.sh" | zip -r test-package-java -@
 	find . -name "*test*.jar" | zip -r test-package-java -@
@@ -250,7 +251,7 @@ test-junit: test-junit-algos test-junit-avro-parser test-junit-core test-junit-e
 	test-junit-orc-parser test-junit-parquet-parser test-junit-persist-s3 \
 	test-junit-scala-2.10 test-junit-scala-2.11 test-junit-integ
 
-test-junit-testing: test-junit-scala-2.10 test-junit-scala-2.11 test-junit-integ
+test-junit-testing: test-junit-integ test-junit-core test-junit-persist-s3
 
 JUNIT_SMOKE_DOONLY = $$(head -n 1 tests/doOnlyJunitSmokeTestList)
 test-junit-smoke:
