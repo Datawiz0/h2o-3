@@ -24,7 +24,11 @@ def call(buildConfig) {
     // [
     //   stageName: 'PhantomJS Smoke', target: 'test-phantom-js-smoke',
     //   timeoutValue: 10, lang: buildConfig.LANG_JS
-    // ]
+    // ],
+    [
+      stageName: 'Java8 Smoke', target: 'test-junit-smoke',
+      timeoutValue: 10, lang: buildConfig.LANG_JAVA
+    ]
   ]
 
   // Stages executed after each push to PR branch.

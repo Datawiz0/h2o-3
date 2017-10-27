@@ -180,7 +180,7 @@ test-package-java:
 		h2o-scala/src/test/scala \
 		h2o-scala/build/h2o-scala_2.*/libs/h2o-scala_2.*.jar \
 		scripts/run.py py \
-		build/h2o.jar sort_crash.csv
+		build/h2o.jar sort_crash.csv tests/doOnlyJunitSmokeTestList
 	find . -name "*.gradle" | zip -r test-package-java -@
 	find . -name "*test*.sh" | zip -r test-package-java -@
 	find . -name "*test*.jar" | zip -r test-package-java -@
@@ -255,4 +255,7 @@ test-junit-testing: test-junit-persist-s3
 
 JUNIT_SMOKE_DOONLY = $$(head -n 1 tests/doOnlyJunitSmokeTestList)
 test-junit-smoke:
-	@ DOONLY=$(JUNIT_SMOKE_DOONLY) $(MAKE) -f $(THIS_FILE) test-junit-core test-junit-algos test-junit-scala-2.10 test-junit-scala-2.11
+	@ DOONLY=$(JUNIT_SMOKE_DOONLY) $(MAKE) -f $(THIS_FILE) test-junit-core
+	@ DOONLY=$(JUNIT_SMOKE_DOONLY) $(MAKE) -f $(THIS_FILE) test-junit-algos
+	@ DOONLY=$(JUNIT_SMOKE_DOONLY) $(MAKE) -f $(THIS_FILE) test-junit-scala-2.10
+	@ DOONLY=$(JUNIT_SMOKE_DOONLY) $(MAKE) -f $(THIS_FILE) test-junit-scala-2.11
