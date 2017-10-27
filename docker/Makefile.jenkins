@@ -246,9 +246,11 @@ test-junit-integ:
 	rm -f h2o-core/src/main/java/water/init/BuildVersion.java
 	./gradlew h2o-test-integ:runPythonMultiJVMTests
 
-test-junit: test-junit-algos test-junit-avro-parser test-junit-core \
-	test-junit-ext-xgboost test-junit-orc-parser test-junit-parquet-parser \
-	test-junit-persist-s3 test-junit-scala-2.10 test-junit-scala-2.11 test-junit-integ
+test-junit: test-junit-algos test-junit-avro-parser test-junit-core test-junit-ext-xgboost \
+	test-junit-orc-parser test-junit-parquet-parser test-junit-persist-s3 \
+	test-junit-scala-2.10 test-junit-scala-2.11 test-junit-integ
+
+test-junit-testing: test-junit-scala-2.10 test-junit-scala-2.11 test-junit-integ
 
 JUNIT_SMOKE_DOONLY = $$(head -n 1 tests/doOnlyJunitSmokeTestList)
 test-junit-smoke:
