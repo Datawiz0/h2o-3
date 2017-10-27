@@ -251,7 +251,7 @@ test-junit: test-junit-algos test-junit-avro-parser test-junit-core test-junit-e
 	test-junit-orc-parser test-junit-parquet-parser test-junit-persist-s3 \
 	test-junit-scala-2.10 test-junit-scala-2.11 test-junit-integ
 
-test-junit-testing: test-junit-integ test-junit-core test-junit-persist-s3
+test-junit-testing: test-junit-core test-junit-persist-s3
 
 JUNIT_SMOKE_DOONLY = $$(head -n 1 tests/doOnlyJunitSmokeTestList)
 test-junit-smoke:
