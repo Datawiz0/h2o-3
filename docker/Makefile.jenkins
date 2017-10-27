@@ -200,10 +200,10 @@ test-junit-avro-parser:
 	cd h2o-parsers/h2o-avro-parser && ./testMultiNode.sh
 
 test-junit-core:
-	# echo "+--JUnit H2O-Core TestMultiNode--+"
-	# rm -f h2o-core/src/main/java/water/init/BuildVersion.java
-	# ./gradlew h2o-core:cpLibs
-	# cd h2o-core && ./testMultiNode.sh
+	echo "+--JUnit H2O-Core TestMultiNode--+"
+	rm -f h2o-core/src/main/java/water/init/BuildVersion.java
+	./gradlew h2o-core:cpLibs
+	cd h2o-core && ./testMultiNode.sh
 
 test-junit-ext-xgboost:
 	@echo "+--JUnit H2O-Ext-XGBoost TestSingleNode--+"
